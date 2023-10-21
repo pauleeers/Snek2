@@ -111,24 +111,22 @@ function handleTouchMove(event) {
     let diffY = startY - event.touches[0].clientY;
 
     if (Math.abs(diffX) > Math.abs(diffY)) { 
-        if (diffX > 0 && dx === 0) { 
-            dx = 0; dy = -20;
-        } else if (dx === 0) { 
-            dx = 0; dy = 20;
-        }
-    } else { 
-        if (diffX > 0 && dx === 0) { 
+        if (diffX > 0 && dx === 0) {  // Moving left
             dx = -20; dy = 0;
-        } else if (dx === 0) { 
+        } else if (dx === 0) {  // Moving right
             dx = 20; dy = 0;
         }
-        
+    } else { 
+        if (diffY > 0 && dy === 0) {  // Moving up
+            dx = 0; dy = -20;
+        } else if (dy === 0) {  // Moving down
+            dx = 0; dy = 20;
+        }
     }
-    
-
     startX = null;
     startY = null;
 }
+
 
 document.addEventListener('touchstart', handleTouchStart, false);
 document.addEventListener('touchmove', handleTouchMove, false);
