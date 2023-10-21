@@ -6,7 +6,7 @@ let food = { x: getRandomCoordinate(), y: getRandomCoordinate() };
 let dx = 20;
 let dy = 0;
 let score = 0;
-let speed = 50;  // Adjusted starting speed
+let speed = 60;  // Adjusted starting speed
 
 let startX = 0;
 let startY = 0;
@@ -23,14 +23,17 @@ function drawGame() {
     drawFood();
 
     let head = { ...snake[0] };
-    head.x += dx;
-    head.y += dy;
 
     // Wrap around logic for the walls
-    if (head.x < 0) head.x = 380;
-    if (head.x > 380) head.x = 0;
-    if (head.y < 0) head.y = 380;
-    if (head.y > 380) head.y = 0;
+    if (head.x + dx < 0) head.x = 380;
+    else if (head.x + dx > 380) head.x = 0;
+    else head.x += dx;
+
+    if (head.y + dy < 0) head.y = 380;
+    else if (head.y + dy > 380) head.y = 0;
+    else head.y += dy;
+
+
 
 
     snake.unshift(head);
