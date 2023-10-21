@@ -12,7 +12,7 @@ let startX = 0;
 let startY = 0;
 
 function getRandomCoordinate() {
-    return Math.floor(Math.random() * 20) * 20;
+    return Math.floor(Math.random() * 19) * 20;
 }
 
 
